@@ -110,7 +110,7 @@ def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets):
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     if len(aliens) == 0:
         bullets.empty()
-        ai_settings.incease_speed()
+        ai_settings.increase_speed()  # Corregir el nombre del método
         create_fleet(ai_settings, screen, aliens)
 
 def ship_hit(ai_settings, screen, stats, ship, aliens, bullets):

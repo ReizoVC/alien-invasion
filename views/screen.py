@@ -1,8 +1,14 @@
 import pygame
 
-def update_screen(ai_settings, screen, ship, aliens, bullets, alien_bullets):
+def load_background_image(ai_settings):
+    """Cargar la imagen de fondo."""
+    return pygame.image.load('images/background.png')
+
+def update_screen(ai_settings, screen, ship, aliens, bullets, alien_bullets, background_image):
     """Actualizar las imágenes en la pantalla y cambiar a la nueva pantalla."""
-    screen.fill(ai_settings.bg_color)
+    for y in range(0, ai_settings.screen_height, background_image.get_height()):
+        for x in range(0, ai_settings.screen_width, background_image.get_width()):
+            screen.blit(background_image, (x, y))
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     for alien_bullet in alien_bullets.sprites():
