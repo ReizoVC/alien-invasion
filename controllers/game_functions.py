@@ -1,11 +1,9 @@
-# game_functions.py
-
 import sys
 import pygame
 import random
-from bullet import Bullet
-from alien import Alien
-from alien_bullet import AlienBullet
+from models.bullet import Bullet
+from models.alien import Alien
+from models.alien_bullet import AlienBullet
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """Responder a pulsaciones de teclas."""
@@ -34,18 +32,6 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keydown_events(event, ai_settings, screen, ship, bullets)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
-
-def update_screen(ai_settings, screen, ship, aliens, bullets, alien_bullets):
-    """Actualizar las imágenes en la pantalla y cambiar a la nueva pantalla."""
-    screen.fill(ai_settings.bg_color)
-    for bullet in bullets.sprites():
-        bullet.draw_bullet()
-    for alien_bullet in alien_bullets.sprites():
-        alien_bullet.draw_bullet()
-    ship.blitme()
-    for alien in aliens.sprites():
-        alien.blitme()
-    pygame.display.flip()
 
 def update_bullets(ai_settings, screen, ship, aliens, bullets):
     """Actualizar la posición de los proyectiles y eliminar los que han desaparecido."""
