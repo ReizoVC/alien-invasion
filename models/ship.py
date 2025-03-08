@@ -1,5 +1,3 @@
-# ship.py
-
 import pygame
 from pygame.sprite import Sprite
 
@@ -10,12 +8,12 @@ class Ship(Sprite):
         self.screen = screen
         self.ai_settings = ai_settings
         
-        # Cargar la imagen de la nave y obtener su rectángulo
+
         self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
         
-        # Colocar la nave en la parte inferior central de la pantalla
+
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
         
@@ -40,7 +38,7 @@ class Ship(Sprite):
     def blitme(self):
         """Dibujar la nave en su ubicación actual y su hitbox."""
         self.screen.blit(self.image, self.rect)
-        pygame.draw.rect(self.screen, (0, 255, 0), self.rect, 2)  # Dibujar borde verde alrededor de la nave
+
 
     def center_ship(self):
         """Centrar la nave en la pantalla."""

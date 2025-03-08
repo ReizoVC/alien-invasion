@@ -8,15 +8,12 @@ class Alien(Sprite):
         self.screen = screen
         self.ai_settings = ai_settings
         
-        # Cargar la imagen del alien y obtener su rectángulo
         self.image = pygame.image.load('images/alien.bmp')
         self.rect = self.image.get_rect()
         
-        # Iniciar cada nuevo alien cerca de la esquina superior izquierda
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
         
-        # Almacenar la posición exacta del alien
         self.x = float(self.rect.x)
 
     def check_edges(self):
@@ -33,4 +30,4 @@ class Alien(Sprite):
     def blitme(self):
         """Dibujar el alien en su posición actual y su hitbox."""
         self.screen.blit(self.image, self.rect)
-        pygame.draw.rect(self.screen, (255, 0, 0), self.rect, 2)  # Dibujar borde rojo alrededor del alien
+

@@ -85,11 +85,11 @@ def create_alien(ai_settings, screen, aliens, alien_number, row_number):
     alien_width = alien.rect.width
     alien_height = alien.rect.height
     if row_number % 2 == 0:
-        alien.x = alien_width + (alien_width + 35) * alien_number  # Primera fila
+        alien.x = alien_width + (alien_width + 35) * alien_number 
     else:
-        alien.x = alien_width + (alien_width + 35) * alien_number + (alien_width // 2)  # Filas desplazadas
+        alien.x = alien_width + (alien_width + 35) * alien_number + (alien_width // 2)
     alien.rect.x = alien.x
-    alien.rect.y = alien_height + (alien_height + 35) * row_number  # Separación de 35px entre filas
+    alien.rect.y = alien_height + (alien_height + 35) * row_number
     aliens.add(alien)
 
 def check_fleet_edges(ai_settings, aliens):
@@ -110,7 +110,7 @@ def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets):
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     if len(aliens) == 0:
         bullets.empty()
-        ai_settings.increase_speed()  # Corregir el nombre del método
+        ai_settings.increase_speed()
         create_fleet(ai_settings, screen, aliens)
 
 def ship_hit(ai_settings, screen, stats, ship, aliens, bullets):

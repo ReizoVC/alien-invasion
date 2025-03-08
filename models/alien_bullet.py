@@ -7,16 +7,14 @@ class AlienBullet(Sprite):
         super().__init__()
         self.screen = screen
         
-        # Crear un rectángulo para el proyectil en (0,0) y luego establecer su posición correcta
         self.rect = pygame.Rect(0, 0, ai_settings.bullet_width, ai_settings.bullet_height)
         self.rect.centerx = alien.rect.centerx
         self.rect.top = alien.rect.bottom
         
-        # Almacenar la posición del proyectil como un valor decimal
         self.y = float(self.rect.y)
         
-        self.color = ai_settings.bullet_color
-        self.speed_factor = ai_settings.alien_bullet_speed_factor  # Usar una configuración específica para la velocidad de las balas de los alienígenas
+        self.color = ai_settings.balaAlien
+        self.speed_factor = ai_settings.alien_bullet_speed_factor
 
     def update(self):
         """Mover el proyectil hacia abajo en la pantalla."""
